@@ -23,7 +23,30 @@
       logo: './imgs/logo.png',
       subMaxLevel: 3,
       executeScript: true,
-      themeColor: '#cb1a1e'
+      themeColor: '#cb1a1e',
+
+      plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
+            var url =
+              // 'https://github.com/docsifyjs/docsify/blob/master/docs/' +
+              // vm.route.file;
+              'https://github.com/HYunWenH/docsify_shengyao/blob/main/docs/' +
+              vm.route.file;
+              // 'file:///C:/plearn/front-end%20development/shengyao/docsify2/docs/' +
+              // vm.route.file;
+            var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+
+            return (
+              editHtml +
+              html
+              // '\n----\n' +
+              // 'Last modified {docsify-updated}' +
+              // editHtml
+            );
+          ``  });
+        }
+      ]
     }
   </script>
   <!-- Docsify v4 -->
@@ -40,5 +63,4 @@
     position: fixed;
     width: 100%;
   }
-
 </style>
